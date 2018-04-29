@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/python3
 from flask import Flask
 from flask import render_template
 from pymongo import MongoClient
@@ -23,4 +23,4 @@ def main():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
