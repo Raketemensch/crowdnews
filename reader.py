@@ -18,9 +18,8 @@ def main():
     output = []
     for post in mydb.post.find().sort('published', pymongo.DESCENDING):
         output.append(post)
-        # print(post)
     return render_template('news.html', output=output)
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(debug=True)

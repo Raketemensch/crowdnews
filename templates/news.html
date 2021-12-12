@@ -1,4 +1,11 @@
-<table width="80%">
+<head>
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
+</head>
+
+<table class="pure-table pure-table-horizontal">
+
 {% for dict_item in output %}
 	<tr>
 		<td><img src="{{ dict_item['image'] }}" width=200 onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/4/47/Comic_image_missing.png';"></td>
@@ -10,14 +17,16 @@
 				<tr>
 					<td>{{ dict_item['description'] }}</td>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<td><a href="{{ dict_item['redditLink'] }}">Discuss</a></td>
 				</tr>
 				<tr>
 					<td>{{ dict_item['published'] }}</td>
-				</tr>
+				</tr> -->
 			</table>
 		</td>
 	</tr>
+
 {% endfor %}
 </table>
+</body>
