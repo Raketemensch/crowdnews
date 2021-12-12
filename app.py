@@ -6,7 +6,12 @@ import urllib
 from bs4 import BeautifulSoup
 import ssl
 import datetime
-from mongoengine import *
+import firebase_admin
+from firebase_admin import credentials
+
+cred = credentials.Certificate("/unimportant.json")
+firebase_admin.initialize_app(cred)
+
 context = ssl._create_unverified_context()
 
 connect('mongoengine_test', host='localhost', port=27017)
