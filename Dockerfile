@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 MAINTAINER fnord "fnord@libertylost.org
 
 RUN apt-get update -y && \
-    apt-get install -y python3 python3-pip mongodb-server cron
+    apt-get install -y python3 python3-pip mongodb-server cron vim
 
 COPY ./requirements.txt /app/requirements.txt
 
@@ -18,8 +18,5 @@ RUN chmod 0644 /etc/cron.d/app_crontab &&\
 
 COPY . /app
 
-ENV PORT 5000
+ENTRYPOINT [ "./start.sh" ]
 
-ENTRYPOINT [ "python3" ]
-
-CMD [ "reader.py" ]

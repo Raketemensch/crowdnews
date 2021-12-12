@@ -6,11 +6,12 @@ import urllib
 from bs4 import BeautifulSoup
 import ssl
 import datetime
-import firebase_admin
-from firebase_admin import credentials
+from mongoengine import *
+#import firebase_admin
+#from firebase_admin import credentials
 
-cred = credentials.Certificate("/unimportant.json")
-firebase_admin.initialize_app(cred)
+#cred = credentials.Certificate("/unimportant.json")
+#firebase_admin.initialize_app(cred)
 
 context = ssl._create_unverified_context()
 
