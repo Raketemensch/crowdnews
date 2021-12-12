@@ -1,4 +1,4 @@
 Flask==2.0.2
-praw==3.6.2
-bs4
+praw==7.5.0
+bs4==4.10.0
 mongoengine==0.23.1
