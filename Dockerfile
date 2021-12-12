@@ -18,6 +18,8 @@ RUN chmod 0644 /etc/cron.d/app_crontab &&\
 
 COPY . /app
 
+ENV PORT 5000
+
 ENTRYPOINT [ "python3" ]
 
 CMD [ "reader.py" ]
