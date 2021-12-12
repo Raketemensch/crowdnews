@@ -4,27 +4,15 @@
 	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
 </head>
 
-<table class="pure-table pure-table-horizontal">
+<table class="pure-table pure-table-horizontal" width="50%" align="center">
 
 {% for dict_item in output %}
 	<tr>
-		<td><img src="{{ dict_item['image'] }}" width=200 onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/4/47/Comic_image_missing.png';"></td>
-		<td>
-			<table>
-				<tr>
-					<td><a href="{{dict_item['url']}}">{{ dict_item['title'] }}</a></td>
-				</tr>
-				<tr>
-					<td>{{ dict_item['description'] }}</td>
-				</tr>
-				<!-- <tr>
-					<td><a href="{{ dict_item['redditLink'] }}">Discuss</a></td>
-				</tr>
-				<tr>
-					<td>{{ dict_item['published'] }}</td>
-				</tr> -->
-			</table>
-		</td>
+			<tr height="2">
+					<td><a href="{{dict_item['url']}}">{{ dict_item['title'] }}</a><br>
+					{{ dict_item['description'] }}</td>
+					<td rowspawn="2"><img src="{{ dict_item['image'] }}" width=200 onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/4/47/Comic_image_missing.png';"></td>
+			</tr>
 	</tr>
 
 {% endfor %}
