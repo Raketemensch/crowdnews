@@ -11,10 +11,10 @@ WORKDIR /app
 
 RUN pip install -r requirements.txt
 
-COPY app-crontab /etc/cron.d/app-crontab
+COPY app_crontab /etc/cron.d/app_crontab
 
-RUN chmod 0644 /etc/cron.d/app-crontab &&\
-    crontab /etc/cron.d/app-crontab
+RUN chmod 0644 /etc/cron.d/app_crontab &&\
+    crontab /etc/cron.d/app_crontab
 
 COPY . /app
 
