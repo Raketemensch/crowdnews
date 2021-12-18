@@ -4,17 +4,33 @@
 	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
 </head>
 
-<table class="pure-table pure-table-horizontal" width="50%" align="center">
-
-{% for dict_item in output %}
+<table class="pure-table pure-table-horizontal" width="70%" align="center">
 	<tr>
-			<tr height="2">
-					<td><a href="{{dict_item['url']}}">{{ dict_item['title'] }}</a><br>
-					{{ dict_item['description'] }}</td>
-					<td rowspawn="2"><img src="{{ dict_item['image'] }}" width=200 onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/4/47/Comic_image_missing.png';"></td>
-			</tr>
-	</tr>
+		<td width="100" align="top" valign="top">
+			<form action="{{ url_for('category') }}" method="post">
+				<p><button type="submit" name="category" value="news" class="btn-link">General</button></p>
+				<p><button type="submit" name="category" value="nottheonion" class="btn-link">Ironic</button></p>
+				<p><button type="submit" name="category" value="science" class="btn-link">Science</button></p>
+				<p><button type="submit" name="category" value="politicalnews" class="btn-link">Politics</button></p>
+				<p><button type="submit" name="category" value="entertainment" class="btn-link">Entertainment</button></p>
+				<p><button type="submit" name="category" value="technews" class="btn-link">Technology</button></p>
+			</form>
+		</td>
+		<td>
+			<table>
+			{% for dict_item in output %}
+				<tr>
+						<tr height="2">
+								<td><a href="{{dict_item['url']}}">{{ dict_item['title'] }}</a><br>
+								{{ dict_item['description'] }}</td>
+								<td rowspawn="2"><img src="{{ dict_item['image'] }}" width=200 onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/4/47/Comic_image_missing.png';"></td>
+						</tr>
+				</tr>
 
-{% endfor %}
+
+			{% endfor %}
+		</table>
+		</td>
+	</tr>
 </table>
 </body>
