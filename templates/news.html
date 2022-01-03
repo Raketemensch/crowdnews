@@ -1,27 +1,78 @@
 <head>
-	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
+	<title>News filtered by thousands, rather than a few</title>
+	<meta name="keywords" content="News, crowdnews">
+	<meta name="description" content="News filtered by thousands, rather than a few">
+	<link rel="icon" type="image/x-icon" href="/news_favicon.ico">
 </head>
 
-<table class="pure-table pure-table-horizontal" width="70%" align="center">
+<style>
+	table { 
+    border-collapse: separate; 
+    border-spacing: 0 10px; 
+    margin-top: -10px; correct offset on first border spacing if desired
+	}
+	td {
+		border: solid .5px #000;
+		border-style: solid none;
+		padding: 10px;
+		background-color: white;
+	}
+	td {
+		padding: 10px;
+		background-color: white;
+	}
+	td:first-child {
+		border-left-style: solid;
+		border-top-left-radius: 10px; 
+		border-bottom-left-radius: 10px;
+	}
+	td:last-child {
+		border-right-style: solid;
+		border-bottom-right-radius: 10px; 
+		border-top-right-radius: 10px; 
+	}
+	#submit {
+    background-color: green;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #fff;
+    font-family: 'Helvetica';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border:none;
+	}
+	#submit:hover {
+		border: none;
+		background:red;
+		box-shadow: 0px 0px 1px #777;
+	}
+	h3 {
+  		font-family: Arial, Helvetica, sans-serif;
+		font-size: 16px;
+	}	
+</style>
+
+<table width="70%" align="center">
 	<tr>
-		<td width="100" align="top" valign="top">
+		<td width="100" valign="top">
 			<form action="{{ url_for('main') }}" method="post">
-				<p><button type="submit" name="category" value="news" class="btn-link">General</button></p>
-				<p><button type="submit" name="category" value="nottheonion" class="btn-link">Ironic</button></p>
-				<p><button type="submit" name="category" value="science" class="btn-link">Science</button></p>
-				<p><button type="submit" name="category" value="politicalnews" class="btn-link">Politics</button></p>
-				<p><button type="submit" name="category" value="entertainment" class="btn-link">Entertainment</button></p>
-				<p><button type="submit" name="category" value="technews" class="btn-link">Technology</button></p>
+				<p><button type="submit" name="category" value="news" class="btn-link" id="submit">General</button></p>
+				<p><button type="submit" name="category" value="UpliftingNews" class="btn-link" id="submit">Uplifting</button></p>
+				<p><button type="submit" name="category" value="nottheonion" class="btn-link" id="submit">Ironic</button></p>
+				<p><button type="submit" name="category" value="science" class="btn-link" id="submit">Science</button></p>
+				<p><button type="submit" name="category" value="politics" class="btn-link" id="submit">Politics</button></p>
+				<p><button type="submit" name="category" value="entertainment" class="btn-link" id="submit">Entertainment</button></p>
+				<p><button type="submit" name="category" value="technews" class="btn-link" id="submit">Technology</button></p>
 			</form>
 		</td>
-		<td>
+		<td class="middle" valign-"top">
 			<table>
 			{% for dict_item in output %}
 				<tr>
 						<tr height="2">
-								<td><a href="{{dict_item['url']}}">{{ dict_item['title'] }}</a><br>
+								<td><h3><a href="{{dict_item['url']}}">{{ dict_item['title'] }}</a></h3><br>
 								{{ dict_item['description'] }}</td>
 								<td rowspawn="2"><img src="{{ dict_item['image'] }}" width=200 onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/4/47/Comic_image_missing.png';"></td>
 						</tr>

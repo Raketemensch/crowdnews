@@ -22,7 +22,7 @@ class Post(Document):
     category = StringField(required=True, max_length=500)
     meta = {'strict': False}
 
-subreddits = ['news', 'nottheonion', 'science', 'politicalnews', 'entertainment', 'technews']
+subreddits = ['news', 'nottheonion', 'science', 'politics', 'entertainment', 'technews', 'UpliftingNews']
 
 def main(subreddits):
     reddit = praw.Reddit(client_id='BdOx6GxL8Q4QYA',
