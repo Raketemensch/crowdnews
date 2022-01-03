@@ -14,16 +14,8 @@ app = Flask(__name__)
 posts = mydb.posts
 
 
-@app.route('/')
+@app.route('/', methods = ['POST', 'GET'])
 def main():
-    output = []
-    for post in mydb.post.find({"category": "news"}).sort('published', pymongo.DESCENDING):
-        output.append(post)
-    return render_template('news.html', output=output)
-
-
-@app.route('/category', methods = ['POST', 'GET'])
-def category():
     output = []
     if len(request.form) > 0:
         categoryName =  request.form["category"]
@@ -32,7 +24,9 @@ def category():
                     output.append(post)
         return render_template('news.html', output=output)
     else:
-        print('Got a form post without a category.')
+        for post in mydb.post.find({"category": "news"}).sort('published', pymongo.DESCENDING):
+            output.append(post)
+        return render_template('news.html', output=output)
 
 
 if __name__ == '__main__':
