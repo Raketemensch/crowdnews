@@ -1,4 +1,4 @@
-This is a python app which reaches out to the Reddit API and pulls in news stories, 
+This is a flask app which reaches out to the Reddit API and pulls in news stories, 
 then reaches out to the individual news sites and pulls in metadata to display the 
 stories in a nicer fashion.
 
