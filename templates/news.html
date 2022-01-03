@@ -1,24 +1,24 @@
 <head>
-	<title>News filtered by thousands, rather than a few</title>
-	<meta name="keywords" content="News, crowdnews">
-	<meta name="description" content="News filtered by thousands, rather than a few">
+	<title>NewsFilter</title>
+	<meta name="keywords" content="News, crowdnews, newsfilter">
+	<meta name="description" content="NewsFilter -- filtered by thousands, rather than a few">
 	<link rel="icon" type="image/x-icon" href="/news_favicon.ico">
 </head>
 
 <style>
-	table { 
+	table {  
     border-collapse: separate; 
-    border-spacing: 0 10px; 
+    border-spacing: 0 5px; 
     margin-top: -10px; correct offset on first border spacing if desired
 	}
 	td {
 		border: solid .5px #000;
 		border-style: solid none;
-		padding: 10px;
+		padding: 8px;
 		background-color: white;
 	}
 	td {
-		padding: 10px;
+		padding: 18px;
 		background-color: white;
 	}
 	td:first-child {
@@ -32,7 +32,7 @@
 		border-top-right-radius: 10px; 
 	}
 	#submit {
-    background-color: green;
+    background-color: black;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius:6px;
@@ -42,6 +42,7 @@
     text-decoration: none;
     cursor: pointer;
     border:none;
+	width: 150
 	}
 	#submit:hover {
 		border: none;
@@ -51,10 +52,17 @@
 	h3 {
   		font-family: Arial, Helvetica, sans-serif;
 		font-size: 16px;
+	}
+	p {
+  		font-family: Arial, Helvetica, sans-serif;
+		font-size: 15px;
 	}	
 </style>
 
 <table width="70%" align="center">
+	<!-- <tr>
+		<td colspan=2 valign-"center" halign-"center"><center><h3>NewsFilter</h3></center></td>
+	</tr> -->
 	<tr>
 		<td width="100" valign="top">
 			<form action="{{ url_for('main') }}" method="post">
@@ -71,16 +79,14 @@
 			<table>
 			{% for dict_item in output %}
 				<tr>
-						<tr height="2">
-								<td><h3><a href="{{dict_item['url']}}">{{ dict_item['title'] }}</a></h3><br>
-								{{ dict_item['description'] }}</td>
-								<td rowspawn="2"><img src="{{ dict_item['image'] }}" width=200 onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/4/47/Comic_image_missing.png';"></td>
-						</tr>
+					<tr height="2">
+						<td halign="top" valign="top"><h3><a href="{{dict_item['url']}}">{{ dict_item['title'] }}</a></h3>
+						<p>{{ dict_item['description'] }}</p></td>
+						<td rowspawn="2"><img src="{{ dict_item['image'] }}" width=200 onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/4/47/Comic_image_missing.png';"></td>
+					</tr>
 				</tr>
-
-
 			{% endfor %}
-		</table>
+			</table>
 		</td>
 	</tr>
 </table>

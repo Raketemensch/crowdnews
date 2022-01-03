@@ -19,8 +19,7 @@ def main():
     output = []
     if len(request.form) > 0:
         categoryName =  request.form["category"]
-        print(categoryName)
-        for post in mydb.post.find({"category": categoryName}).sort('published', pymongo.DESCENDING):
+        for post in mydb.post.find({"category": categoryName}).sort('published', pymongo.DESCENDING).limit(50):
                     output.append(post)
         return render_template('news.html', output=output)
     else:

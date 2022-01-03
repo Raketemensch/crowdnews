@@ -44,7 +44,7 @@ def main(subreddits):
             try:
                 description = soup.find("meta", {"name": "description"})['content']
             except Exception:
-                description = 'Description meta tag not found.'
+                description = 'No synopsis available.'
             try:
                 image = soup.find("meta", {"property": "og:image"})['content']
             except Exception:
