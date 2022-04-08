@@ -1,8 +1,8 @@
 <head>
-	<title>NewsFilter</title>
-	<meta name="keywords" content="News, crowdnews, newsfilter">
-	<meta name="description" content="NewsFilter -- filtered by thousands, rather than a few">
-	<link rel="icon" type="image/x-icon" href="/news_favicon.ico">
+	<title>Humanized News</title>
+	<meta name="keywords" content="News, crowdnews, newsfilter, humanized news">
+	<meta name="description" content="Humanized News -- News filtered by thousands of people, instead of a few. Every story listed here has been upvoted by hundreds of humans, sometimes thousands. Sometimes several thousand. Power to the people!">
+	<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}"">
 </head>
 
 <style>
@@ -32,7 +32,7 @@
 		border-top-right-radius: 10px; 
 	}
 	#submit {
-    background-color: black;
+    background-color: 3a9e3e;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius:6px;
@@ -60,9 +60,9 @@
 </style>
 
 <table width="70%" align="center">
-	<!-- <tr>
-		<td colspan=2 valign-"center" halign-"center"><center><h3>NewsFilter</h3></center></td>
-	</tr> -->
+	<tr>
+		<td colspan=2 valign-"center" halign-"center"><center><img src="{{ url_for('static', filename='humanized_news_header.png') }}"</center></td>
+	</tr>
 	<tr>
 		<td width="100" valign="top">
 			<form action="{{ url_for('main') }}" method="post">
